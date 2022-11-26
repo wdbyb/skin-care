@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%;
+
+  font-family: $primary-ff;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+
+  main {
+    flex-grow: 1;
+  }
+}
