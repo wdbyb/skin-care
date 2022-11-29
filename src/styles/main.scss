@@ -4,6 +4,9 @@
 
 // 2. Vendors
 @import './vendors/normalize';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
 
 // 3. Base stuff
 @import './base/reset';
@@ -15,6 +18,12 @@
 @import './layout/header';
 
 // 5. Components
+
+@import './components/button';
+@import './components/category';
+@import './components/nav';
+@import './components/cart';
+@import './components/swiper';
 
 // 6. Page-specific styles
 @import './pages/home';

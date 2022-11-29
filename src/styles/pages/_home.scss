@@ -72,46 +72,6 @@
   }
 }
 
-.category {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  cursor: pointer;
-
-  &__img {
-    width: 166px;
-    height: 166px;
-    margin-bottom: 19px;
-
-    border: 1px solid #000000;
-    border-radius: 50%;
-
-    img {
-      width: 100%;
-    }
-  }
-
-  &__title {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 26px;
-    text-align: center;
-
-    color: #000000;
-  }
-
-  &:hover {
-    .category__img {
-      background: #853e81;
-    }
-
-    .category__title {
-      text-decoration: underline;
-    }
-  }
-}
-
 .advantages {
   background: #eef5f5;
 
@@ -222,53 +182,71 @@
   }
 }
 
-.button {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
-  text-transform: uppercase;
-  color: #ffffff;
+.blog {
+  position: relative;
+  max-width: 1048px;
+  padding: 78px 24px 124px;
+  margin: 0 auto;
 
-  text-align: center;
+  .swiper-slide {
+    height: auto;
+  }
+}
 
-  cursor: pointer;
+.bestsellers {
+  position: relative;
+  background: #eef5f5;
 
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  .swiper-slide {
+    height: auto;
+  }
 
-  &--small {
-    max-width: 192px;
-    padding: 5px 20px;
+  &__wrapper {
+    max-width: 1048px;
+    padding: 78px 24px 124px;
+    margin: 0 auto;
+  }
 
-    font-weight: 700;
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 258px;
+    height: 100%;
+  }
+
+  &__image {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    flex-grow: 1;
+
+    margin-bottom: 24px;
+
+    font-weight: 600;
     font-size: 24px;
     line-height: 28px;
   }
 
-  &--medium {
-    max-width: 324px;
-    padding: 15px 60px;
+  &__size-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
   }
 
-  &--primary {
-    background: #56bcb7;
-    border: 2px solid #56bcb7;
-    border-radius: 20px;
-
-    &:hover {
-      background-color: #ffffff;
-      color: #56bcb7;
-    }
+  &__size {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
   }
 
-  &--secondary {
-    background: #853e81;
-    border: 2px solid #853e81;
-    border-radius: 15px;
-    color: #ffffff;
-
-    &:hover {
-      background-color: #ffffff;
-      color: #853e81;
-    }
+  &__price {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
   }
 }

@@ -1,0 +1,50 @@
+.button {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &--small {
+    max-width: 192px;
+    padding: 5px 20px;
+
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  &--medium {
+    max-width: 324px;
+    padding: 15px 60px;
+  }
+
+  &--primary {
+    background: #56bcb7;
+    border: 2px solid #56bcb7;
+    border-radius: 20px;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #56bcb7;
+    }
+  }
+
+  &--secondary {
+    background: #853e81;
+    border: 2px solid #853e81;
+    border-radius: 15px;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #853e81;
+    }
+  }
+}

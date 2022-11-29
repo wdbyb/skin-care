@@ -1,0 +1,12 @@
+.nav {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
