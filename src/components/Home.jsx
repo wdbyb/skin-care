@@ -1,85 +1,11 @@
 import Category from './Categories';
+import BlogArticle from './BlogArticle';
+import Product from './Product';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 
-function Product(props) {
-  const { img, title, size, price } = props;
-
-  return (
-    <div className="bestsellers__item">
-      <div className="bestsellers__image">
-        <img src={`./src/assets/${img}`} alt="" />
-      </div>
-      <h3 className="bestsellers__title">{title}</h3>
-      <p className="bestsellers__size-price">
-        <span className="bestsellers__size">{size}</span>
-        <span className="bestsellers__price">{price}</span>
-      </p>
-      <button className="button button--primary button--small" type="button">
-        Add Cart
-      </button>
-    </div>
-  );
-}
-
-function Home() {
-  const bestsellersData = [
-    {
-      img: 'image-bestseller-1.png',
-      title: 'Retinol 0.8% in Squalane Rose extract',
-      price: '$19',
-      size: '50 ml',
-    },
-
-    {
-      img: 'image-bestseller-2.png',
-      title: 'Glycolic Acid 7% + B12 Exfoliating Toning',
-      price: '$34',
-      size: '200 ml',
-    },
-    {
-      img: 'image-bestseller-3.png',
-      title: '100% Organic Cold-Pressed Seed Oil',
-      price: '$29',
-      size: '50 ml',
-    },
-    {
-      img: 'image-bestseller-1.png',
-      title: 'Retinol 0.8% in Squalane Rose extract',
-      price: '$19',
-      size: '50 ml',
-    },
-  ];
-
-  const advantagesData = [
-    {
-      title: 'Cleansing',
-      desc: 'We provide you with the best substances for washing your face',
-      img: {
-        width: 122,
-        height: 144,
-        src: 'icon-cleansing.svg',
-      },
-    },
-    {
-      title: 'Toning',
-      desc: 'We use only proven recipes to balance your microflora skin',
-      img: {
-        width: 125,
-        height: 150,
-        src: 'icon-toning.svg',
-      },
-    },
-    {
-      title: 'Moisturizing',
-      desc: 'We prepared verified formulas for hydrating and softening your skin',
-      img: {
-        width: 141,
-        height: 141,
-        src: 'icon-moisturizing.svg',
-      },
-    },
-  ];
+function Home(props) {
+  const { blogs, bestsellers, advantages } = props;
 
   return (
     <main className="home">
@@ -109,7 +35,7 @@ function Home() {
             Full cycle of skin care routine
           </h2>
           <ul className="advantages__list">
-            {advantagesData.map((item) => {
+            {advantages.map((item) => {
               const { title, desc, img } = item;
 
               return (
@@ -178,7 +104,7 @@ function Home() {
                 el: '.bestsellers__swiper .swiper-pagination',
               }}
             >
-              {bestsellersData.map((item) => {
+              {bestsellers.map((item) => {
                 return (
                   <SwiperSlide>
                     <Product {...item} />
@@ -209,10 +135,10 @@ function Home() {
               el: '.blog__swiper .swiper-pagination',
             }}
           >
-            {bestsellersData.map((item) => {
+            {blogs.map((item) => {
               return (
                 <SwiperSlide>
-                  <Product {...item} />
+                  <BlogArticle {...item} />
                 </SwiperSlide>
               );
             })}

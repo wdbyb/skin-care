@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
+
 function Header() {
   return (
     <header className="header">
-      <a className="logo">
+      <Link className="logo" to="/">
         <img width="231" height="61" src="./src/assets/logo.png" alt="Logo" />
-      </a>
+      </Link>
       <nav className="nav">
         <ul className="nav__list">
           <li>
