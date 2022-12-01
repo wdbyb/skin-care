@@ -1,8 +1,14 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import Blog from './components/Blog';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { blogData, bestsellersData, advantagesData } from './data';
+import {
+  blogData,
+  bestsellersData,
+  advantagesData,
+  articleCardsData,
+} from './data';
 
 function App() {
   return (
@@ -18,10 +24,11 @@ function App() {
                   blogs={blogData}
                   bestsellers={bestsellersData}
                   advantages={advantagesData}
+                  articleCards={articleCardsData}
                 />
               }
             ></Route>
-            <Route path="/test" element={<div>Test</div>}></Route>
+            <Route path="/blog/:id" element={<Blog blogs={blogData} />}></Route>
           </Routes>
         </div>
         <Footer />

@@ -6,7 +6,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
-  color: #000000;
+  color: $color-default-black;
 
   &__wrapper {
     max-width: 1048px;
@@ -55,7 +55,7 @@
   font-weight: 400;
   font-size: 22px;
   line-height: 26px;
-  color: #000000;
+  color: $color-default-black;
 
   &__title {
     margin-bottom: 40px;
@@ -73,7 +73,7 @@
 }
 
 .advantages {
-  background: #eef5f5;
+  background: $color-bg-secondary;
 
   &__wrapper {
     max-width: 1048px;
@@ -101,7 +101,7 @@
     line-height: 26px;
     text-align: center;
 
-    color: #000000;
+    color: $color-default-black;
   }
 
   &__item-title {
@@ -137,52 +137,9 @@
   max-width: 1048px;
   padding: 78px 24px 84px;
   margin: 0 auto;
-
-  &__item {
-    position: relative;
-
-    width: 100%;
-    max-width: 465px;
-    min-height: 280px;
-    padding: 45px 40px;
-
-    font-weight: 600;
-    font-size: 34px;
-    line-height: 40px;
-
-    color: #000000;
-  }
-
-  &__img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    border-radius: 20px;
-
-    z-index: -1;
-    overflow: hidden;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__title {
-    max-width: 220px;
-    margin-bottom: 24px;
-
-    span {
-      font-style: italic;
-    }
-  }
 }
 
-.blog {
+.blog-list {
   position: relative;
   max-width: 1048px;
   padding: 78px 24px;
@@ -197,54 +154,13 @@
   }
 }
 
-.socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-
-  a:hover {
-    color: #ffeafe;
-  }
-}
-
-.footer {
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    position: relative;
-
-    max-width: 1048px;
-    padding: 24px;
-    margin: 0 auto;
-
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-
-    color: #000000;
-
-    ul {
-      display: flex;
-      align-items: center;
-      gap: 50px;
-
-      a:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
 .subscribe {
-  background: #56bbb7;
+  background: $color-bg-primary;
 
   font-size: 22px;
   line-height: 26px;
   text-align: center;
-  color: #ffffff;
+  color: $color-default-white;
 
   &__wrapper {
     position: relative;
@@ -270,7 +186,7 @@
       max-width: 385px;
       padding: 10px 30px;
 
-      background: #ffffff;
+      background: $color-default-white;
       border-radius: 15px;
 
       text-align: left;
@@ -280,7 +196,7 @@
 
 .bestsellers {
   position: relative;
-  background: #eef5f5;
+  background: $color-bg-secondary;
 
   .swiper-slide {
     height: auto;
@@ -290,48 +206,5 @@
     max-width: 1048px;
     padding: 78px 24px 124px;
     margin: 0 auto;
-  }
-
-  &__item {
-    display: flex;
-    flex-direction: column;
-
-    max-width: 258px;
-    height: 100%;
-  }
-
-  &__image {
-    margin-bottom: 24px;
-  }
-
-  &__title {
-    flex-grow: 1;
-
-    margin-bottom: 24px;
-
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
-  }
-
-  &__size-price {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin-bottom: 24px;
-  }
-
-  &__size {
-    font-style: italic;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-  }
-
-  &__price {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 26px;
   }
 }

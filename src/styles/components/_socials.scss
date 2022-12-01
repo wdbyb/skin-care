@@ -1,0 +1,10 @@
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+
+  &__link:hover {
+    color: #ffeafe;
+  }
+}

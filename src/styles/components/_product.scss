@@ -1,0 +1,42 @@
+.product {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 258px;
+  height: 100%;
+
+  &__image {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    flex-grow: 1;
+
+    margin-bottom: 24px;
+
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  &__size-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+  }
+
+  &__size {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  &__price {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+  }
+}

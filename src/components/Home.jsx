@@ -1,11 +1,12 @@
 import Category from './Categories';
-import BlogArticle from './BlogArticle';
+import BlogCard from './BlogCard';
 import Product from './Product';
+import ArticleCard from './ArticleCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 
 function Home(props) {
-  const { blogs, bestsellers, advantages } = props;
+  const { blogs, bestsellers, advantages, articleCards } = props;
 
   return (
     <main className="home">
@@ -57,34 +58,9 @@ function Home(props) {
         </div>
       </section>
       <section className="articles">
-        <article className="articles__item">
-          <div className="articles__img">
-            <img src="./src/assets/image-article-1.jpg" alt="" />
-          </div>
-          <h2 className="articles__title">
-            We’ve taken care of <span>every</span> skin type
-          </h2>
-          <button
-            className="button button--secondary button--small"
-            type="button"
-          >
-            Find more
-          </button>
-        </article>
-        <article className="articles__item">
-          <div className="articles__img">
-            <img src="./src/assets/image-article-2.jpg" alt="" />
-          </div>
-          <h2 className="articles__title">
-            Get <span>personal advices</span> for your skin
-          </h2>
-          <button
-            className="button button--secondary button--small"
-            type="button"
-          >
-            Consultate
-          </button>
-        </article>
+        {articleCards.map((item) => (
+          <ArticleCard {...item} />
+        ))}
       </section>
       <section className="bestsellers">
         <div className="bestsellers__wrapper">
@@ -118,27 +94,27 @@ function Home(props) {
           </div>
         </div>
       </section>
-      <section className="blog">
+      <section className="blog-list">
         <h2 className="heading-secondary">Our Blog</h2>
-        <div className="blog__swiper swiper-primary">
+        <div className="blog-list__swiper swiper-primary">
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={40}
             slidesPerView={3}
             navigation={{
               clickable: true,
-              nextEl: '.blog__swiper .swiper-button-next',
-              prevEl: '.blog__swiper .swiper-button-prev',
+              nextEl: '.blog-list__swiper .swiper-button-next',
+              prevEl: '.blog-list__swiper .swiper-button-prev',
             }}
             pagination={{
               clickable: true,
-              el: '.blog__swiper .swiper-pagination',
+              el: '.blog-list__swiper .swiper-pagination',
             }}
           >
             {blogs.map((item) => {
               return (
                 <SwiperSlide>
-                  <BlogArticle {...item} />
+                  <BlogCard {...item} />
                 </SwiperSlide>
               );
             })}

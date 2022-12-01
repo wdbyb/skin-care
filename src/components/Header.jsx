@@ -4,7 +4,7 @@ function Header() {
   return (
     <header className="header">
       <Link className="logo" to="/">
-        <img width="231" height="61" src="./src/assets/logo.png" alt="Logo" />
+        <img width="231" height="61" src="../src/assets/logo.png" alt="Logo" />
       </Link>
       <nav className="nav">
         <ul className="nav__list">
