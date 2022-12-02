@@ -9,11 +9,13 @@ import {
   advantagesData,
   articleCardsData,
 } from './data';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <Header />
         <div className="container">
           <Routes>
@@ -28,7 +30,10 @@ function App() {
                 />
               }
             ></Route>
-            <Route path="/blog/:id" element={<Blog blogs={blogData} />}></Route>
+            <Route
+              path="/blog/:id"
+              element={<Blog blogs={blogData} bestsellers={bestsellersData} />}
+            ></Route>
           </Routes>
         </div>
         <Footer />

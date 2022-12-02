@@ -25,7 +25,7 @@ function Categories() {
   ];
 
   return (
-    <section className="categories">
+    <section className="categories" id="categories">
       <h2 className="categories__title heading-secondary">
         Shop by categories
       </h2>

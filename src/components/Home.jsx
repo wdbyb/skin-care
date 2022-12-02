@@ -1,4 +1,4 @@
-import Category from './Categories';
+import Categories from './Categories';
 import BlogCard from './BlogCard';
 import Product from './Product';
 import ArticleCard from './ArticleCard';
@@ -29,7 +29,7 @@ function Home(props) {
           </div>
         </div>
       </section>
-      <Category />
+      <Categories />
       <section className="advantages">
         <div className="advantages__wrapper">
           <h2 className="advantages__title heading-secondary">

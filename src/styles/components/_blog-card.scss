@@ -5,6 +5,12 @@
   max-width: 258px;
   height: 100%;
 
+  &:hover {
+    .blog-card__title {
+      text-decoration: underline;
+    }
+  }
+
   &__image {
     margin-bottom: 24px;
   }

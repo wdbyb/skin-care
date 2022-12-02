@@ -9,16 +9,24 @@ function Header() {
       <nav className="nav">
         <ul className="nav__list">
           <li>
-            <a href="#">About</a>
+            <a className="nav__link" href="#">
+              About
+            </a>
           </li>
           <li>
-            <a href="#">Categories</a>
+            <a className="nav__link" href="#categories">
+              Categories
+            </a>
           </li>
           <li>
-            <a href="#">Bestsellers</a>
+            <a className="nav__link" href="#">
+              Bestsellers
+            </a>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <a className="nav__link" href="#">
+              Blog
+            </a>
           </li>
         </ul>
       </nav>

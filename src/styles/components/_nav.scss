@@ -9,4 +9,10 @@
     flex-wrap: wrap;
     gap: 30px;
   }
+
+  &__link {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
