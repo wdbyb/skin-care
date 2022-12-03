@@ -1,9 +1,10 @@
-import Categories from './Categories';
-import BlogCard from './BlogCard';
-import Product from './Product';
-import ArticleCard from './ArticleCard';
+import Categories from '../components/Categories';
+import BlogCard from '../components/BlogCard';
+import Product from '../components/Product';
+import ArticleCard from '../components/ArticleCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
+import { Link } from 'react-router-dom';
 
 function Home(props) {
   const { blogs, bestsellers, advantages, articleCards } = props;
@@ -20,12 +21,13 @@ function Home(props) {
             <p className="welcome__desc">
               Cleaners, moisturizers, treatments and more
             </p>
-            <button
+            <Link
               className="button button--primary button--medium"
               type="button"
+              to="/products"
             >
               Shop Now
-            </button>
+            </Link>
           </div>
         </div>
       </section>

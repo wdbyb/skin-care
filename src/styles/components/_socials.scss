@@ -4,7 +4,11 @@
   justify-content: center;
   gap: 25px;
 
-  &__link:hover {
-    color: #ffeafe;
+  &__link {
+    color: $color-default-white;
+
+    &:hover {
+      color: #ffeafe;
+    }
   }
 }

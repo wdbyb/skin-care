@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
-import BlogCard from './BlogCard';
-import Product from './Product';
+import BlogCard from '../components/BlogCard';
+import Product from '../components/Product';
 
 function Blog(props) {
   const { blogs, bestsellers } = props;

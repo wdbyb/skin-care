@@ -3,6 +3,7 @@
 @import './abstracts/mixins';
 
 // 2. Vendors
+@import 'bootstrap/dist/css/bootstrap.min.css';
 @import './vendors/normalize';
 @import 'swiper/css';
 @import 'swiper/css/navigation';
@@ -33,5 +34,6 @@
 // 6. Page-specific styles
 @import './pages/home';
 @import './pages/blog';
+@import './pages/catalog';
 
 // 7. Themes

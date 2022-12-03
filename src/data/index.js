@@ -4,6 +4,7 @@ export const bestsellersData = [
     title: 'Retinol 0.8% in Squalane Rose extract',
     price: '$19',
     size: '50 ml',
+    filters: ['combination'],
   },
 
   {
@@ -23,12 +24,14 @@ export const bestsellersData = [
     title: 'Vegan Moisturize Aloe Vera',
     price: '$14',
     size: '100 ml',
+    filters: ['combination', 'normal'],
   },
   {
     img: 'image-bestseller-5.png',
     title: 'Cream Skin Toner & Moisturizer',
     price: '$29',
     size: '150 ml',
+    filters: ['normal'],
   },
 ];
 

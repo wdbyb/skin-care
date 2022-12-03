@@ -1,7 +1,9 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Home from './components/Home';
-import Blog from './components/Blog';
+import ScrollToTop from './components/ScrollToTop';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import Catalog from './pages/Catalog';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   blogData,
@@ -9,18 +11,18 @@ import {
   advantagesData,
   articleCardsData,
 } from './data';
-import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
         <ScrollToTop />
         <Header />
-        <div className="container">
+        <div>
           <Routes>
             <Route
               path="/"
+              exact
               element={
                 <Home
                   blogs={blogData}
@@ -32,7 +34,15 @@ function App() {
             ></Route>
             <Route
               path="/blog/:id"
+              exact
               element={<Blog blogs={blogData} bestsellers={bestsellersData} />}
+            ></Route>
+            <Route
+              path="/products"
+              exact
+              element={
+                <Catalog blogs={blogData} bestsellers={bestsellersData} />
+              }
             ></Route>
           </Routes>
         </div>

@@ -8,10 +8,39 @@ body {
 #root {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+
   position: relative;
 
-  main {
+  height: 100%;
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .container {
     flex-grow: 1;
   }
+}
+
+a {
+  color: $color-default-black;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-default-black;
+    text-decoration: none;
+  }
+}
+
+dl,
+ol,
+ul {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
 }

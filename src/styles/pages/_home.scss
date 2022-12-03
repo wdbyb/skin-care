@@ -1,7 +1,7 @@
 .welcome {
   position: relative;
 
-  padding: 180px 24px 160px;
+  padding: 156px 0 136px;
 
   font-weight: 400;
   font-size: 24px;
@@ -10,6 +10,7 @@
 
   &__wrapper {
     max-width: 1048px;
+    padding: 24px;
     margin: 0 auto;
   }
 
