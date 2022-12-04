@@ -1,8 +1,10 @@
-import Dropdown from 'react-bootstrap/Dropdown';
-import Product from '../components/Product';
+import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
+import Dropdown from 'react-bootstrap/Dropdown';
+import Product from '../components/Product';
 import BlogCard from '../components/BlogCard';
+import { filtersMarkupData } from '../data';
 
 function Filter(props) {
   const { title, checkboxes, onChange } = props;
@@ -36,24 +38,44 @@ function Filter(props) {
 function Catalog(props) {
   const { bestsellers, blogs } = props;
 
-  const filter = {
-    // normal: 'normal',
-    // combination: 'combination',
+  const [filters, setFilters] = useState({});
+  const [category, setCategory] = useState({});
+  const [products, setProducts] = useState(bestsellers);
+
+  const handleCatagoryChange = (e) => {
+    if (e.target.name === 'all') {
+      setCategory({});
+      return;
+    }
+
+    if (!category[e.target.name]) {
+      setCategory((prev) => ({ ...prev, [e.target.name]: e.target.name }));
+    } else {
+      setCategory((prev) => {
+        const newData = { ...prev };
+        delete newData[e.target.name];
+
+        return newData;
+      });
+    }
   };
 
   const handleFilterChange = (e) => {
     if (e.target.checked) {
-      filter[e.target.name] = e.target.name;
+      setFilters((prev) => ({ ...prev, [e.target.name]: e.target.name }));
     } else {
-      delete filter[e.target.name];
-    }
+      setFilters((prev) => {
+        const newData = { ...prev };
+        delete newData[e.target.name];
 
-    console.log(filter);
+        return newData;
+      });
+    }
   };
 
-  const bar = (arr) => {
-    const needles = arr.filter(function (item) {
-      for (let key in filter) {
+  const sortArray = (arr) => {
+    const sortChecker = (item, checker) => {
+      for (let key in checker) {
         if (item.filters) {
           if (item.filters.indexOf(key) < 0) {
             return false;
@@ -63,16 +85,18 @@ function Catalog(props) {
         }
       }
       return true;
+    };
+
+    const needles = arr.filter((item) => {
+      return sortChecker(item, filters) && sortChecker(item, category);
     });
 
-    console.log(needles);
+    setProducts(needles);
   };
 
-  // const value = 'oily';
-
-  // filter[value] = value;
-
-  console.log(filter);
+  useEffect(() => {
+    sortArray(bestsellers);
+  }, [filters, category]);
 
   const buttons = [
     'All',
@@ -84,30 +108,24 @@ function Catalog(props) {
     'Tools',
   ];
 
-  const filters = [
-    {
-      title: 'Skin Type',
-      checkboxes: ['Combination', 'Normal', 'Oily', 'Dry', 'Sensitive'],
-    },
-    {
-      title: 'Concern',
-      checkboxes: ['Acne', 'Dryness', 'Oiliness', 'Dullness', 'Dehydration'],
-    },
-  ];
-
   return (
     <main className="catalog paragraph">
       <h1 className="visually-hidden">Products</h1>
       <h2 className="catalog__title heading-primary">All</h2>
       <div className="catalog__categories">
         {buttons.map((item) => (
-          <button type="button">{item}</button>
+          <input
+            type="button"
+            name={item.toLowerCase()}
+            value={item}
+            onClick={handleCatagoryChange}
+          />
         ))}
       </div>
       <div className="catalog__main">
         <div className="filters">
           <h2 className="heading-tertiary">Filters</h2>
-          {filters.map((item) => (
+          {filtersMarkupData.map((item) => (
             <Filter {...item} onChange={handleFilterChange} />
           ))}
         </div>
@@ -128,16 +146,14 @@ function Catalog(props) {
             </Dropdown.Menu>
           </Dropdown>
           <div className="catalog__list-pagination">
-            {bestsellers && (
-              <>
-                <ul className="catalog__list">
-                  {bestsellers.map((item) => (
-                    <Product {...item} />
-                  ))}
-                </ul>
-                <div className="catalog__pagination">Page 1</div>
-              </>
-            )}
+            <>
+              <ul className="catalog__list">
+                {products.map((item) => (
+                  <Product {...item} />
+                ))}
+              </ul>
+              <div className="catalog__pagination">Page 1</div>
+            </>
           </div>
         </div>
       </div>

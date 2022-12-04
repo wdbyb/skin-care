@@ -35,6 +35,17 @@ export const bestsellersData = [
   },
 ];
 
+export const filtersMarkupData = [
+  {
+    title: 'Skin Type',
+    checkboxes: ['Combination', 'Normal', 'Oily', 'Dry', 'Sensitive'],
+  },
+  {
+    title: 'Concern',
+    checkboxes: ['Acne', 'Dryness', 'Oiliness', 'Dullness', 'Dehydration'],
+  },
+];
+
 export const articleCardsData = [
   {
     img: 'image-article-1.jpg',

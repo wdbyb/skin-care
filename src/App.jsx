@@ -38,7 +38,7 @@ function App() {
               element={<Blog blogs={blogData} bestsellers={bestsellersData} />}
             ></Route>
             <Route
-              path="/products"
+              path="/catalog"
               exact
               element={
                 <Catalog blogs={blogData} bestsellers={bestsellersData} />
