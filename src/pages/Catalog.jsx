@@ -12,8 +12,9 @@ function Catalog(props) {
 
   const [filters, setFilters] = useState({});
   const [category, setCategory] = useState({});
+  const [catalogTitle, setCatalogTitle] = useState('All');
   const [products, setProducts] = useState(catalogProducts);
-  const [sort, setSort] = useState('all');
+  const [sort, setSort] = useState('price');
 
   const handleDropdownClick = (e) => {
     setSort(e.target.text.toLowerCase());
@@ -22,11 +23,15 @@ function Catalog(props) {
   const handleCatagoryChange = (e) => {
     if (e.target.name === 'all') {
       setCategory({});
+      setCatalogTitle('All');
       return;
     }
 
     if (!category[e.target.name]) {
-      setCategory((prev) => ({ [e.target.name]: e.target.name }));
+      setCategory(() => ({ [e.target.name]: e.target.name }));
+      setCatalogTitle(
+        e.target.name.charAt(0).toUpperCase() + e.target.name.slice(1)
+      );
     }
   };
 
@@ -61,25 +66,20 @@ function Catalog(props) {
       return sortChecker(item, filters) && sortChecker(item, category);
     });
 
-    if (sort !== 'all') {
-      const sorted = needles.sort((a, b) => {
-        switch (sort) {
-          case 'price':
-            return +b.price.replace(/\D/g, '') - +a.price.replace(/\D/g, '');
-          case 'sells':
-            return +a.price.replace(/\D/g, '') - +b.price.replace(/\D/g, '');
-          case 'a-z':
-            return a.title
-              .replace(/[^a-zA-Z]+/g, '')[0]
-              .localeCompare(b.title.replace(/[^a-zA-Z]+/g, '')[0]);
-        }
-      });
+    const sorted = needles.sort((a, b) => {
+      switch (sort) {
+        case 'price':
+          return +b.price.replace(/\D/g, '') - +a.price.replace(/\D/g, '');
+        case 'sells':
+          return +a.price.replace(/\D/g, '') - +b.price.replace(/\D/g, '');
+        case 'a-z':
+          return a.title
+            .replace(/[^a-zA-Z]+/g, '')[0]
+            .localeCompare(b.title.replace(/[^a-zA-Z]+/g, '')[0]);
+      }
+    });
 
-      setProducts(sorted);
-      return;
-    }
-
-    setProducts(needles);
+    setProducts(sorted);
   };
 
   useEffect(() => {
@@ -99,7 +99,7 @@ function Catalog(props) {
   return (
     <main className="catalog paragraph">
       <h1 className="visually-hidden">Products</h1>
-      <h2 className="catalog__title heading-primary">All</h2>
+      <h2 className="catalog__title heading-primary">{catalogTitle}</h2>
       <div className="catalog__categories">
         {buttons.map((item) => (
           <input
@@ -119,12 +119,9 @@ function Catalog(props) {
         </div>
         <div className="catalog__products">
           <Dropdown>
-            <Dropdown.Toggle
-              variant="success"
-              id="dropdown-basic"
-              className="foo"
-            >
-              Dropdown Button
+            <Dropdown.Toggle id="dropdown-basic" className="foo">
+              <b>Sort by: </b>
+              <span>{sort.charAt(0).toUpperCase() + sort.slice(1)}</span>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>

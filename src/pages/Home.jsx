@@ -24,7 +24,7 @@ function Home(props) {
             <Link
               className="button button--primary button--medium"
               type="button"
-              to="/products"
+              to="/catalog"
             >
               Shop Now
             </Link>
