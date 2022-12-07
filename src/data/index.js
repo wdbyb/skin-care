@@ -35,6 +35,79 @@ export const bestsellersData = [
   },
 ];
 
+export const catalogData = [
+  {
+    img: 'image-bestseller-1.png',
+    title: 'Retinol 0.8% in Squalane Rose extract',
+    price: '$19',
+    size: '50 ml',
+    filters: ['combination', 'oiliness', 'bestsellers'],
+  },
+
+  {
+    img: 'image-bestseller-2.png',
+    title: 'Glycolic Acid 7% + B12 Exfoliating Toning',
+    price: '$34',
+    size: '200 ml',
+    filter: ['acne', 'dullness', 'bestsellers', 'treatment'],
+  },
+  {
+    img: 'image-bestseller-3.png',
+    title: '100% Organic Cold-Pressed Seed Oil',
+    price: '$29',
+    size: '50 ml',
+    filter: ['oily', 'bestsellers', 'tools'],
+  },
+  {
+    img: 'image-bestseller-4.png',
+    title: 'Vegan Moisturize Aloe Vera',
+    price: '$14',
+    size: '100 ml',
+    filters: [
+      'combination',
+      'normal',
+      'dehydration',
+      'bestsellers',
+      'cleaners',
+    ],
+  },
+  {
+    img: 'image-bestseller-5.png',
+    title: 'Cream Skin Toner & Moisturizer',
+    price: '$29',
+    size: '150 ml',
+    filters: ['normal', 'acne', 'bestsellers', 'cleaners'],
+  },
+  {
+    img: 'image-catalog-1.png',
+    title: 'Mineral UV Filters SPF 30 with Antioxidants',
+    price: '$24',
+    size: '50 ml',
+    filters: ['normal', 'oily', 'cleaners', 'tools', 'eye treatment'],
+  },
+  {
+    img: 'image-catalog-2.png',
+    title: 'Glycolic Acid 15% + B12 Exfoliating Toning',
+    price: '$20',
+    size: '200 ml',
+    filters: ['normal', 'acne', 'dry', 'moisturizes', 'treatment'],
+  },
+  {
+    img: 'image-catalog-3.png',
+    title: 'Vitamin C Suspension 30% in Silicone',
+    price: '$34',
+    size: '200 ml',
+    filters: ['normal', 'sensitive', 'moisturizes', 'cleaners'],
+  },
+  {
+    img: 'image-catalog-4.png',
+    title: 'Vitamin C + E Suspension 25% in Silicone',
+    price: '$19',
+    size: '50 ml',
+    filters: ['normal', 'oily', 'moisturizes'],
+  },
+];
+
 export const filtersMarkupData = [
   {
     title: 'Skin Type',

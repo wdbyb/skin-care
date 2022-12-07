@@ -5,42 +5,19 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Product from '../components/Product';
 import BlogCard from '../components/BlogCard';
 import { filtersMarkupData } from '../data';
-
-function Filter(props) {
-  const { title, checkboxes, onChange } = props;
-
-  return (
-    <div className="filters__item filter">
-      <h3 className="heading-tertiary uppercase">{title}</h3>
-      {checkboxes && (
-        <div className="filter__list">
-          {checkboxes.map((item) => {
-            const lower = item.toLowerCase();
-
-            return (
-              <div className="filter__item">
-                <input
-                  onChange={onChange}
-                  type="checkbox"
-                  name={lower}
-                  id={`filter-${lower}`}
-                />
-                <label htmlFor={`filter-${lower}`}>{item}</label>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-}
+import Filter from '../components/Filter';
 
 function Catalog(props) {
-  const { bestsellers, blogs } = props;
+  const { catalogProducts, blogs } = props;
 
   const [filters, setFilters] = useState({});
   const [category, setCategory] = useState({});
-  const [products, setProducts] = useState(bestsellers);
+  const [products, setProducts] = useState(catalogProducts);
+  const [sort, setSort] = useState('all');
+
+  const handleDropdownClick = (e) => {
+    setSort(e.target.text.toLowerCase());
+  };
 
   const handleCatagoryChange = (e) => {
     if (e.target.name === 'all') {
@@ -49,14 +26,7 @@ function Catalog(props) {
     }
 
     if (!category[e.target.name]) {
-      setCategory((prev) => ({ ...prev, [e.target.name]: e.target.name }));
-    } else {
-      setCategory((prev) => {
-        const newData = { ...prev };
-        delete newData[e.target.name];
-
-        return newData;
-      });
+      setCategory((prev) => ({ [e.target.name]: e.target.name }));
     }
   };
 
@@ -91,12 +61,30 @@ function Catalog(props) {
       return sortChecker(item, filters) && sortChecker(item, category);
     });
 
+    if (sort !== 'all') {
+      const sorted = needles.sort((a, b) => {
+        switch (sort) {
+          case 'price':
+            return +b.price.replace(/\D/g, '') - +a.price.replace(/\D/g, '');
+          case 'sells':
+            return +a.price.replace(/\D/g, '') - +b.price.replace(/\D/g, '');
+          case 'a-z':
+            return a.title
+              .replace(/[^a-zA-Z]+/g, '')[0]
+              .localeCompare(b.title.replace(/[^a-zA-Z]+/g, '')[0]);
+        }
+      });
+
+      setProducts(sorted);
+      return;
+    }
+
     setProducts(needles);
   };
 
   useEffect(() => {
-    sortArray(bestsellers);
-  }, [filters, category]);
+    sortArray(catalogProducts);
+  }, [filters, category, sort]);
 
   const buttons = [
     'All',
@@ -129,7 +117,7 @@ function Catalog(props) {
             <Filter {...item} onChange={handleFilterChange} />
           ))}
         </div>
-        <div>
+        <div className="catalog__products">
           <Dropdown>
             <Dropdown.Toggle
               variant="success"
@@ -140,18 +128,18 @@ function Catalog(props) {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+              <Dropdown.Item onClick={handleDropdownClick}>Price</Dropdown.Item>
+              <Dropdown.Item onClick={handleDropdownClick}>Sells</Dropdown.Item>
+              <Dropdown.Item onClick={handleDropdownClick}>A-Z</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <div className="catalog__list-pagination">
             <>
-              <ul className="catalog__list">
+              <div className="catalog__list">
                 {products.map((item) => (
                   <Product {...item} />
                 ))}
-              </ul>
+              </div>
               <div className="catalog__pagination">Page 1</div>
             </>
           </div>

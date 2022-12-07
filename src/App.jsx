@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   blogData,
   bestsellersData,
+  catalogData,
   advantagesData,
   articleCardsData,
 } from './data';
@@ -41,7 +42,7 @@ function App() {
               path="/catalog"
               exact
               element={
-                <Catalog blogs={blogData} bestsellers={bestsellersData} />
+                <Catalog blogs={blogData} catalogProducts={catalogData} />
               }
             ></Route>
           </Routes>
